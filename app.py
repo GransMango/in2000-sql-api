@@ -14,6 +14,7 @@ def create_cache_dir():
 app = Flask(__name__)
 app.config['CACHE_TYPE'] = 'filesystem'
 app.config['CACHE_DIR'] = cache_dir
+app.config['CACHE_DEFAULT_TIMEOUT'] = 1_728_000 # 20 days
 app.config['CACHE_THRESHOLD'] = 1000
 
 cache = Cache(app)
@@ -70,7 +71,6 @@ def get_activity(activity_id):
         return jsonify(cached_data)
     else:
         return jsonify({"error": "Activity not found"}), 404
-
 
 @app.route('/db/updatecache', methods=['POST'])
 def update_activities_cache():
