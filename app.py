@@ -14,7 +14,6 @@ def get_db():
     if 'db' not in g:
         # Retrieve the connection string from environment variables
         connection_string = os.getenv('SQLAZURECONNSTR_SQL_activity')
-        logging.info(f"Connection String: {connection_string}")  # Log the connection string for debugging
         try:
             # Establish a new connection using the connection string
             g.db = pyodbc.connect(connection_string)
@@ -35,9 +34,9 @@ def teardown_db(exception):
 def index():
     return render_template('index.html')
 
-# Define route for API to get data
-@app.route('/api/data', methods=['GET'])
-def get_data():
+# Define route for API to get all activities
+@app.route('/api/activities', methods=['GET'])
+def get_all_activities():
     try:
         db = get_db()
         cursor = db.cursor()
@@ -49,7 +48,23 @@ def get_data():
         logging.error(f"Error fetching data: {e}")
         return jsonify({"error": "An error occurred while fetching data"}), 500
 
+# Define route for API to get a specific activity by its ActivityID
+@app.route('/api/activities/<int:activity_id>', methods=['GET'])
+def get_activity(activity_id):
+    try:
+        db = get_db()
+        cursor = db.cursor()
+        cursor.execute("SELECT * FROM Activities WHERE ActivityID = ?", activity_id)
+        row = cursor.fetchone()
+        if row is None:
+            return jsonify({"error": "Activity not found"}), 404
+        data = dict(zip([column[0] for column in cursor.description], row))
+        return jsonify(data)
+    except Exception as e:
+        logging.error(f"Error fetching data: {e}")
+        return jsonify({"error": "An error occurred while fetching data"}), 500
+
 
 # Main entry point
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
