@@ -3,3 +3,4 @@ flask
 uvicorn[standard]
 pydantic
 azure-identity
+flask_caching

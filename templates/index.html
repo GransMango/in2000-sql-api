@@ -1,15 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Welcome to our API</title>
+    <title>Welcome to IN2000 API</title>
+    <script>
+        function updateActivities() {
+            fetch('/api/activities')
+                .then(response => response.json())
+                .then(data => {
+                    const activitiesTable = document.getElementById('activitiesTable');
+                    activitiesTable.innerHTML = '';  // Clear existing table content
+
+                    // Check if data is not empty
+                    if (data.length > 0) {
+                        data.forEach((activity) => {
+                            let row = activitiesTable.insertRow();
+                            let cell1 = row.insertCell(0);
+                            let cell2 = row.insertCell(1);
+                            // Adjust these based on your actual activity structure
+                            cell1.innerHTML = activity.ActivityID;
+                            cell2.innerHTML = activity.ActivityName; // Replace with actual activity data fields
+                        });
+                    } else {
+                        let row = activitiesTable.insertRow();
+                        let cell = row.insertCell(0);
+                        cell.innerHTML = 'No activities found';
+                        cell.colSpan = 2;
+                    }
+                });
+        }
+    </script>
 </head>
-<body>
+<body onload="updateActivities()">  <!-- This calls your JS function when the page loads -->
     <h1>Welcome to our API</h1>
     <p>Here's how you can use it:</p>
     <ol>
         <li>Get all activities: Send a GET request to /api/activities.</li>
         <li>Get a specific activity by its ActivityID: Send a GET request to /api/activities/{ActivityID} where {ActivityID} is the ID of the activity you want to retrieve.</li>
     </ol>
-    <p>Please note that all requests should be made with the appropriate authentication.</p>
+
+    <!-- Activities Table -->
+    <h2>Activities</h2>
+    <table id="activitiesTable">
+        <tr>
+            <th>ActivityID</th>
+            <th>ActivityName</th>
+        </tr>
+        <!-- Activities will be inserted here by the JavaScript -->
+    </table>
+
+    <!-- Button to manually update activities -->
+    <button onclick="updateActivities()">Update Activities</button>
 </body>
 </html>
