@@ -1,6 +1,6 @@
 import os
 import pyodbc
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 
 connection_string = os.getenv('SQL_activity')
 
@@ -11,7 +11,9 @@ connection = pyodbc.connect(connection_string)
 cursor = connection.cursor()
 
 app = Flask(__name__)
-
+@app.route('/', methods=['GET'])
+def index():
+    return render_template('index.html')
 @app.route('/api/data', methods=['GET'])
 def get_data():
     cursor.execute("SELECT * FROM Activities")  # replace 'your_table' with your actual table name
