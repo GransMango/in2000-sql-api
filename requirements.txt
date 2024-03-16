@@ -1,0 +1,5 @@
+pyodbc
+flask
+uvicorn[standard]
+pydantic
+azure-identity
