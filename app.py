@@ -2,8 +2,9 @@ import os
 import pyodbc
 from flask import Flask, jsonify, render_template
 
-connection_string = os.getenv('SQL_activity')
+connection_string = os.getenv('SQLAZURECONNSTR_SQL_activity')
 
+print("Connection String:", connection_string)  # Log the connection string
 # Establish a new connection using the connection string
 connection = pyodbc.connect(connection_string)
 
