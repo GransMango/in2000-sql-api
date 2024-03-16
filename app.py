@@ -38,12 +38,17 @@ def index():
 # Define route for API to get data
 @app.route('/api/data', methods=['GET'])
 def get_data():
-    db = get_db()
-    cursor = db.cursor()
-    cursor.execute("SELECT * FROM Activities")  # Replace 'Activities' with your actual table name
-    rows = cursor.fetchall()
-    data = [dict(zip([column[0] for column in cursor.description], row)) for row in rows]
-    return jsonify(data)
+    try:
+        db = get_db()
+        cursor = db.cursor()
+        cursor.execute("SELECT * FROM Activities")
+        rows = cursor.fetchall()
+        data = [dict(zip([column[0] for column in cursor.description], row)) for row in rows]
+        return jsonify(data)
+    except Exception as e:
+        logging.error(f"Error fetching data: {e}")
+        return jsonify({"error": "An error occurred while fetching data"}), 500
+
 
 # Main entry point
 if __name__ == '__main__':
