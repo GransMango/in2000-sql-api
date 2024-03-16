@@ -4,14 +4,24 @@ from flask import Flask, request, jsonify, abort, render_template, g
 from flask_caching import Cache
 import logging
 
-# Initialize Flask app
+# Define the cache directory path
+cache_dir = os.path.join(os.getenv('HOME', '.'), 'cache_directory')
+
+if not os.path.exists(cache_dir):
+    os.makedirs(cache_dir)
+
+
+
 app = Flask(__name__)
+app.config['CACHE_TYPE'] = 'filesystem'
+app.config['CACHE_DIR'] = cache_dir
+app.config['CACHE_THRESHOLD'] = 1000
+
+cache = Cache(app)
 
 API_KEY = os.getenv('api_key_update')
 
-# Configure cache
-app.config['CACHE_TYPE'] = 'simple'
-cache = Cache(app)
+
 
 # Set up basic logging
 logging.basicConfig(level=logging.INFO)
