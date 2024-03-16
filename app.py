@@ -6,10 +6,9 @@ import logging
 
 # Define the cache directory path
 cache_dir = os.path.join(os.getenv('HOME', '.'), 'cache_directory')
-
-if not os.path.exists(cache_dir):
-    os.makedirs(cache_dir)
-
+def create_cache_dir():
+    if not os.path.exists(cache_dir):
+        os.makedirs(cache_dir)
 
 
 app = Flask(__name__)
@@ -97,4 +96,5 @@ def update_activities_cache():
 
 # Main entry point
 if __name__ == '__main__':
+    create_cache_dir()
     app.run(debug=False)
