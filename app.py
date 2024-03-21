@@ -1,5 +1,6 @@
 import os
 import pyodbc
+import json
 from flask import Flask, request, jsonify, abort, render_template, g
 from flask_caching import Cache
 import logging
@@ -60,8 +61,9 @@ def get_all_activities():
     cached_data = cache.get('activities')
     if cached_data:
         return jsonify(cached_data)
-    else:
-        return jsonify([])  # Return an empty list if cache is empty
+    with open('example_activities_response.json', 'r') as f:
+        file_data = json.load(f)
+    return jsonify(file_data)  # Return example if not cached
 
 
 @app.route('/api/activities/<int:activity_id>', methods=['GET'])
