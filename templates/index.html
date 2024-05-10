@@ -35,18 +35,28 @@
             <p>Send a GET request to <code>/api/activities</code>.</p>
             <button class="btn btn-primary" onclick="toggleDropdown('get-all-activities')">Show Example Response</button>
             <div id="get-all-activities" class="dropdown-content response-example">
-                <pre><code>{
-    "activities": [
-        {
-            "ActivityID": 1,
-            "ActivityName": "Hiking"
-        },
-        {
-            "ActivityID": 2,
-            "ActivityName": "Swimming"
-        }
-    ]
-}</code></pre>
+                <pre><code>[
+    {
+        "ActivityID": 1,
+        "ActivityName": "Running",
+        "MaxRain": 2.5,
+        "MaxTemp": 20,
+        "MaxWind": 5,
+        "MinRain": 0,
+        "MinTemp": 10,
+        "MinWind": 0
+    },
+    {
+        "ActivityID": 2,
+        "ActivityName": "Cycling",
+        "MaxRain": 2.5,
+        "MaxTemp": 20,
+        "MaxWind": 5,
+        "MinRain": 0,
+        "MinTemp": 10,
+        "MinWind": 0
+    }
+]</code></pre>
             </div>
         </div>
         <div class="endpoint">
@@ -56,7 +66,13 @@
             <div id="get-specific-activity" class="dropdown-content response-example">
                 <pre><code>{
     "ActivityID": 1,
-    "ActivityName": "Hiking"
+    "ActivityName": "Running",
+    "MaxRain": 2.5,
+    "MaxTemp": 20,
+    "MaxWind": 5,
+    "MinRain": 0,
+    "MinTemp": 10,
+    "MinWind": 0
 }</code></pre>
             </div>
         </div>
