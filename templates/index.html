@@ -1,54 +1,86 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Welcome to IN2000 API</title>
-    <script>
-        function updateActivities() {
-            fetch('/api/activities')
-                .then(response => response.json())
-                .then(data => {
-                    const activitiesTable = document.getElementById('activitiesTable');
-                    activitiesTable.innerHTML = '';  // Clear existing table content
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IN2000 API Documentation</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+        .endpoint {
+            margin-bottom: 20px;
+        }
+        .response-example {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .dropdown-content {
+            display: none;
+        }
+        .dropdown-content.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the IN2000 API</h1>
+        <p>Here's how you can use it:</p>
+        <div class="endpoint">
+            <h3>Get All Activities</h3>
+            <p>Send a GET request to <code>/api/activities</code>.</p>
+            <button class="btn btn-primary" onclick="toggleDropdown('get-all-activities')">Show Example Response</button>
+            <div id="get-all-activities" class="dropdown-content response-example">
+                <pre><code>{
+    "activities": [
+        {
+            "ActivityID": 1,
+            "ActivityName": "Hiking"
+        },
+        {
+            "ActivityID": 2,
+            "ActivityName": "Swimming"
+        }
+    ]
+}</code></pre>
+            </div>
+        </div>
+        <div class="endpoint">
+            <h3>Get Specific Activity</h3>
+            <p>Send a GET request to <code>/api/activities/{ActivityID}</code> where <code>{ActivityID}</code> is the ID of the activity you want to retrieve.</p>
+            <button class="btn btn-primary" onclick="toggleDropdown('get-specific-activity')">Show Example Response</button>
+            <div id="get-specific-activity" class="dropdown-content response-example">
+                <pre><code>{
+    "ActivityID": 1,
+    "ActivityName": "Hiking"
+}</code></pre>
+            </div>
+        </div>
+        <div class="endpoint">
+            <h3>Update Activities Cache</h3>
+            <p>Send a POST request to <code>/db/updatecache</code> with the <code>X-API-KEY</code> header.</p>
+            <button class="btn btn-primary" onclick="toggleDropdown('update-cache')">Show Example Response</button>
+            <div id="update-cache" class="dropdown-content response-example">
+                <pre><code>{
+    "message": "Cache updated successfully"
+}</code></pre>
+            </div>
+        </div>
+    </div>
 
-                    // Check if data is not empty
-                    if (data.length > 0) {
-                        data.forEach((activity) => {
-                            let row = activitiesTable.insertRow();
-                            let cell1 = row.insertCell(0);
-                            let cell2 = row.insertCell(1);
-                            // Adjust these based on your actual activity structure
-                            cell1.innerHTML = activity.ActivityID;
-                            cell2.innerHTML = activity.ActivityName; // Replace with actual activity data fields
-                        });
-                    } else {
-                        let row = activitiesTable.insertRow();
-                        let cell = row.insertCell(0);
-                        cell.innerHTML = 'No activities found';
-                        cell.colSpan = 2;
-                    }
-                });
+    <script>
+        function toggleDropdown(id) {
+            var content = document.getElementById(id);
+            if (content.classList.contains('show')) {
+                content.classList.remove('show');
+            } else {
+                content.classList.add('show');
+            }
         }
     </script>
-</head>
-<body onload="updateActivities()">  <!-- This calls your JS function when the page loads -->
-    <h1>Welcome to our API</h1>
-    <p>Here's how you can use it:</p>
-    <ol>
-        <li>Get all activities: Send a GET request to /api/activities.</li>
-        <li>Get a specific activity by its ActivityID: Send a GET request to /api/activities/{ActivityID} where {ActivityID} is the ID of the activity you want to retrieve.</li>
-    </ol>
-
-    <!-- Activities Table -->
-    <h2>Activities</h2>
-    <table id="activitiesTable">
-        <tr>
-            <th>ActivityID</th>
-            <th>ActivityName</th>
-        </tr>
-        <!-- Activities will be inserted here by the JavaScript -->
-    </table>
-
-    <!-- Button to manually update activities -->
-    <button onclick="updateActivities()">Update Activities</button>
 </body>
 </html>
