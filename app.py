@@ -68,11 +68,21 @@ def get_all_activities():
 
 @app.route('/api/activities/<int:activity_id>', methods=['GET'])
 def get_activity(activity_id):
+    # Check if the specific activity is cached
     cached_data = cache.get(f'activity_{activity_id}')
     if cached_data:
         return jsonify(cached_data)
-    else:
-        return jsonify({"error": "Activity not found"}), 404
+    
+    # Load data from JSON file if not cached
+    with open('example_activities_response.json', 'r') as f:
+        activities = json.load(f)
+    
+    # Find the activity with the given ID
+    for activity in activities:
+        if activity['ActivityID'] == activity_id:
+            return jsonify(activity)
+    
+    return jsonify({"error": "Activity not found"}), 404
 
 @app.route('/db/updatecache', methods=['POST'])
 def update_activities_cache():
