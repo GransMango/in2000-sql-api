@@ -1,6 +1,7 @@
 # in2000-weather-sqlapi
 
-This is a Python Flask application that serves weather data from an SQL database, with caching and deployment to Azure Web App via GitHub Actions.
+This is a Python Flask application that serves activities and optimal weather conditions for them, from an SQL database, with caching and deployment to Azure Web App via GitHub Actions.
+The API is to be used for the weather app in IN2000
 
 ## Features
 
