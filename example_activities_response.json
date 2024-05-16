@@ -108,5 +108,215 @@
         "MinRain": 0,
         "MinTemp": 14,
         "MinWind": 2.5
+    },
+    {
+        "ActivityID": 1,
+        "ActivityName": "Running",
+        "MaxRain": 2.5,
+        "MaxTemp": 20,
+        "MaxWind": 5,
+        "MinRain": 0,
+        "MinTemp": 10,
+        "MinWind": 0
+    },
+    {
+        "ActivityID": 2,
+        "ActivityName": "Cycling",
+        "MaxRain": 2.5,
+        "MaxTemp": 20,
+        "MaxWind": 5,
+        "MinRain": 0,
+        "MinTemp": 10,
+        "MinWind": 0
+    },
+    {
+        "ActivityID": 3,
+        "ActivityName": "Walking",
+        "MaxRain": 2.5,
+        "MaxTemp": 15,
+        "MaxWind": 7,
+        "MinRain": 0,
+        "MinTemp": 5,
+        "MinWind": 0
+    },
+    {
+        "ActivityID": 4,
+        "ActivityName": "Swimming",
+        "MaxRain": 0,
+        "MaxTemp": 35,
+        "MaxWind": 10,
+        "MinRain": 0,
+        "MinTemp": 16,
+        "MinWind": 0
+    },
+    {
+        "ActivityID": 5,
+        "ActivityName": "Hike",
+        "MaxRain": 2.5,
+        "MaxTemp": 22,
+        "MaxWind": 5,
+        "MinRain": 0,
+        "MinTemp": 10,
+        "MinWind": 0
+    },
+    {
+        "ActivityID": 6,
+        "ActivityName": "Tennis",
+        "MaxRain": 0,
+        "MaxTemp": 30,
+        "MaxWind": 2,
+        "MinRain": 0,
+        "MinTemp": 10,
+        "MinWind": 0
+    },
+    {
+        "ActivityID": 7,
+        "ActivityName": "Football",
+        "MaxRain": 5,
+        "MaxTemp": 26,
+        "MaxWind": 5,
+        "MinRain": 0,
+        "MinTemp": 8,
+        "MinWind": 0
+    },
+    {
+        "ActivityID": 8,
+        "ActivityName": "Alpine Skiing",
+        "MaxRain": 2.5,
+        "MaxTemp": 3,
+        "MaxWind": 4,
+        "MinRain": 0,
+        "MinTemp": -15,
+        "MinWind": 0
+    },
+    {
+        "ActivityID": 9,
+        "ActivityName": "Cross country skiing",
+        "MaxRain": 2.5,
+        "MaxTemp": 3,
+        "MaxWind": 4,
+        "MinRain": 0,
+        "MinTemp": -20,
+        "MinWind": 0
+    },
+    {
+        "ActivityID": 10,
+        "ActivityName": "Disc Golf",
+        "MaxRain": 1,
+        "MaxTemp": 30,
+        "MaxWind": 5,
+        "MinRain": 0,
+        "MinTemp": 5,
+        "MinWind": 0
+    },
+    {
+        "ActivityID": 11,
+        "ActivityName": "Sailing",
+        "MaxRain": 0,
+        "MaxTemp": 30,
+        "MaxWind": 7.5,
+        "MinRain": 0,
+        "MinTemp": 14,
+        "MinWind": 2.5
+    },
+        {
+        "ActivityID": 12,
+        "ActivityName": "Basketball",
+        "MaxRain": 1,
+        "MaxTemp": 25,
+        "MaxWind": 5,
+        "MinRain": 0,
+        "MinTemp": 5,
+        "MinWind": 0
+    },
+    {
+        "ActivityID": 13,
+        "ActivityName": "Golf",
+        "MaxRain": 1.5,
+        "MaxTemp": 22,
+        "MaxWind": 4,
+        "MinRain": 0,
+        "MinTemp": 5,
+        "MinWind": 0
+    },
+    {
+        "ActivityID": 14,
+        "ActivityName": "Rock Climbing",
+        "MaxRain": 0.5,
+        "MaxTemp": 18,
+        "MaxWind": 3,
+        "MinRain": 0,
+        "MinTemp": 3,
+        "MinWind": 0
+    },
+    {
+        "ActivityID": 15,
+        "ActivityName": "Surfing",
+        "MaxRain": 3,
+        "MaxTemp": 18,
+        "MaxWind": 12,
+        "MinRain": 0,
+        "MinTemp": 5,
+        "MinWind": 2
+    },
+    {
+        "ActivityID": 16,
+        "ActivityName": "Kayaking",
+        "MaxRain": 2,
+        "MaxTemp": 20,
+        "MaxWind": 5,
+        "MinRain": 0,
+        "MinTemp": 5,
+        "MinWind": 0
+    },
+    {
+        "ActivityID": 17,
+        "ActivityName": "Rowing",
+        "MaxRain": 1,
+        "MaxTemp": 22,
+        "MaxWind": 5,
+        "MinRain": 0,
+        "MinTemp": 5,
+        "MinWind": 0
+    },
+    {
+        "ActivityID": 18,
+        "ActivityName": "Horseback Riding",
+        "MaxRain": 1.5,
+        "MaxTemp": 20,
+        "MaxWind": 5,
+        "MinRain": 0,
+        "MinTemp": 0,
+        "MinWind": 0
+    },
+    {
+        "ActivityID": 19,
+        "ActivityName": "Bird Watching",
+        "MaxRain": 1,
+        "MaxTemp": 15,
+        "MaxWind": 3,
+        "MinRain": 0,
+        "MinTemp": 1,
+        "MinWind": 0
+    },
+    {
+        "ActivityID": 20,
+        "ActivityName": "Photography",
+        "MaxRain": 2,
+        "MaxTemp": 20,
+        "MaxWind": 5,
+        "MinRain": 0,
+        "MinTemp": -5,
+        "MinWind": 0
+    },
+    {
+        "ActivityID": 21,
+        "ActivityName": "Skiing",
+        "MaxRain": 2,
+        "MaxTemp": 0,
+        "MaxWind": 4,
+        "MinRain": 0,
+        "MinTemp": -10,
+        "MinWind": 0
     }
 ]
