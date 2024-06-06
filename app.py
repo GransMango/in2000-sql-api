@@ -41,7 +41,9 @@ def get_db():
 
 @app.teardown_appcontext
 def teardown_db(exception):
-    """Close database connection on app context teardown."""
+    """Close database connection on app context teardown and log exceptions if any."""
+    if exception:
+        logging.error("An exception occurred: %s", exception)
     db = g.pop('db', None)
     if db is not None:
         db.close()
